@@ -1,4 +1,4 @@
 ## Movies Search App
 
-#### search for movies with MoviesDB API
-project was bootstrapped with Create-React-App
+#### Search functionality with MoviesDB API
+<small>project was bootstrapped with Create-React-App</small>
