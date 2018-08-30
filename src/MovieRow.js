@@ -11,10 +11,12 @@ class MovieRow extends React.Component {
       <tbody>
         <tr>
           <td>
-            <img className="movie-poster" alt="poster" src= {this.props.movie.poster_src} />
+            <img className="movie-poster" alt="poster" src= {this.props.movie.poster_src} onClick={this.viewMovie.bind(this)} />
           </td>
           <td>
-            <h3>{this.props.movie.title}</h3>
+            <h2>{this.props.movie.title}</h2>
+
+            <h3>Overview</h3>
             <p>{this.props.movie.overview}</p>
             <input type="button" onClick={this.viewMovie.bind(this)} value="More Info" />
           </td>
