@@ -22,12 +22,12 @@ class App extends Component {
     //
     // this.state = { rows: movieRows }
 
-    this.performSearch()
+    this.performSearch("man")
   }
 
-  performSearch() {
+  performSearch(searchTerm) {
     console.log("Perform search using movieDB")
-    const urlString = "https://api.themoviedb.org/3/search/movie?api_key=f737c6529027c853be15b4b75c82737d&language=en-US&query=avengers";
+    const urlString = "https://api.themoviedb.org/3/search/movie?api_key=f737c6529027c853be15b4b75c82737d&language=en-US&query=" + searchTerm;
 
     $.ajax({
       url: urlString,
@@ -54,6 +54,12 @@ class App extends Component {
     })
   }
 
+  searchHandler(event) {
+    // console.log(event.target.value)
+    const searchTerm = event.target.value
+    this.performSearch(searchTerm)
+  }
+
   render() {
     return (
       <div>
@@ -71,7 +77,7 @@ class App extends Component {
           </tbody>
         </table>
 
-        <input className="search-bar" placeholder="Search for a movie" />
+        <input className="search-bar" onChange={this.searchHandler.bind(this)} placeholder="Search for a movie" />
 
         {this.state.rows}
       </div>
