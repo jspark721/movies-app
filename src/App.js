@@ -27,12 +27,26 @@ class App extends Component {
 
   performSearch() {
     console.log("Perform search using movieDB")
-    const urlString = "https://api.themoviedb.org/3/search/movie?api_key=f737c6529027c853be15b4b75c82737d&language=en-US&query=marvel";
+    const urlString = "https://api.themoviedb.org/3/search/movie?api_key=f737c6529027c853be15b4b75c82737d&language=en-US&query=avengers";
 
     $.ajax({
       url: urlString,
       success: (searchResults) => {
         console.log("Fetched movie data successfully")
+        // console.log(searchResults)
+        const results = searchResults.results
+        // console.log(results[0])
+
+        let movieRows = []
+
+        results.forEach((movie) => {
+          movie.poster_src = "https://image.tmdb.org/t/p/w185" + movie.poster_path
+          // console.log(movie.poster_path)
+          const movieRow= <MovieRow key={movie.id} movie={movie} />
+          movieRows.push(movieRow)
+        })
+
+        this.setState({ rows: movieRows})
       },
       error: (xhr, status, err) => {
         console.error("Failed to fetch movie data")
