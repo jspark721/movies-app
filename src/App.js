@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  
   render() {
     return (
       <div className="App">
@@ -20,6 +21,7 @@ class App extends Component {
           </tbody>
         </table>
 
+        <input class="search-bar" placeholder="Search for a movie" />
 
       </div>
     );
