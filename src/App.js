@@ -22,7 +22,7 @@ class App extends Component {
     //
     // this.state = { rows: movieRows }
 
-    this.performSearch("man")
+    this.performSearch("avengers")
   }
 
   performSearch(searchTerm) {
