@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import MovieRow from './MovieRow.js'
+import MovieRow from './MovieRow.js';
+import $ from 'jquery';
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,17 @@ class App extends Component {
 
   performSearch() {
     console.log("Perform search using movieDB")
+    const urlString = "https://api.themoviedb.org/3/search/movie?api_key=f737c6529027c853be15b4b75c82737d&language=en-US&query=marvel";
+
+    $.ajax({
+      url: urlString,
+      success: (searchResults) => {
+        console.log("Fetched movie data successfully")
+      },
+      error: (xhr, status, err) => {
+        console.error("Failed to fetch movie data")
+      }
+    })
   }
 
   render() {
