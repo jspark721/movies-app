@@ -10,6 +10,10 @@
   padding: 8px 20px;
 }
 
+.movie-poster {
+  width: 220px;
+}
+
 h1 {
   padding-left: 10px;
   font-weight: 300;
